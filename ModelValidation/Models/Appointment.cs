@@ -1,4 +1,5 @@
-﻿using ModelValidation.Infrastructure;
+﻿using Microsoft.AspNetCore.Mvc;
+using ModelValidation.Infrastructure;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -12,6 +13,7 @@ namespace ModelValidation.Models
 
         [UIHint("Date")]
         [Required(ErrorMessage = "Please enter a date")]
+        [Remote("ValidateDate", "Home")]
         public DateTime Date { get; set; }
 
         [MustBeTrue(ErrorMessage = "You must accept the terms")]
